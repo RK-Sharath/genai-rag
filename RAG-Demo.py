@@ -23,8 +23,8 @@ st.title('🦜🔗 Ask questions about your document')
 
 genai_api_key = st.sidebar.text_input("GenAI API Key", type="password")
 genai_api_url = st.sidebar.text_input("GenAI API URL", type="default")
-chunk_size = st.sidebar.text_input("Select chunk_size", type="default")
-chunk_overlap = st.sidebar.text_input("Select overlap", type="default")
+chunk_size = st.sidebar.number_input("Select chunk_size", type="default")
+chunk_overlap = st.sidebar.number_input("Select overlap", type="default")
 
 @st.cache_data
 def load_docs(files):
@@ -76,8 +76,6 @@ def main():
 
 # Use RecursiveCharacterTextSplitter as the default and only text splitter
     splitter_type = "RecursiveCharacterTextSplitter"
-    chunk_s=int(chunk_size)
-    chunk_o=int(chunk_overlap)
     embeddings = HuggingFaceEmbeddings()
     #embeddings = HuggingFaceInstructEmbeddings()
 
@@ -104,7 +102,7 @@ def main():
         st.write("Documents uploaded and processed.")
 
         # Split the document into chunks
-        splits = split_texts(loaded_text, chunk_size=chunk_s, chunk_overlap=chunk_o, split_method=splitter_type)
+        splits = split_texts(loaded_text, chunk_size=chunk_size, chunk_overlap=chunk_overlap, split_method=splitter_type)
 
         # Display the number of text chunks
         num_chunks = len(splits)
