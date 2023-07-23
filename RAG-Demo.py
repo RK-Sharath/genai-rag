@@ -25,6 +25,8 @@ st.subheader("Ask questions about your document")
 genai_api_url = st.sidebar.text_input("GenAI API URL", type="default")
 chunk_size = st.sidebar.number_input("Select chunk_size")
 chunk_overlap = st.sidebar.number_input("Select overlap")
+maximum_new_tokens = st.sidebar.number_input("Select max tokens")
+minimum_new_tokens = st.sidebar.number_input("Select min tokens")
 
 @st.cache_data
 def load_docs(files):
@@ -109,7 +111,7 @@ def main():
         st.write(f"Number of text chunks: {num_chunks}")
         retriever = create_retriever(embeddings, splits)
         creds = Credentials(api_key=genai_api_key, api_endpoint=genai_api_url)
-        params = GenerateParams(decoding_method="greedy", temperature=0.7, max_new_tokens=400, min_new_tokens=0, repetition_penalty=2)
+        params = GenerateParams(decoding_method="greedy", temperature=0.7, max_new_tokens=maximum_new_tokens, min_new_tokens=minimum_new_tokens, repetition_penalty=2)
         llm=LangChainInterface(model=ModelType.FLAN_UL2, params=params, credentials=creds)
         qa = RetrievalQA.from_chain_type(llm=llm, retriever=retriever, chain_type="stuff", verbose=True)
         st.write("Ready to answer questions.")
