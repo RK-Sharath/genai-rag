@@ -23,8 +23,8 @@ st.title('🦜🔗 Ask questions about your document')
 
 genai_api_key = st.sidebar.text_input("GenAI API Key", type="password")
 genai_api_url = st.sidebar.text_input("GenAI API URL", type="default")
-chunk_size = st.sidebar.number_input("Select chunk_size", type="default")
-chunk_overlap = st.sidebar.number_input("Select overlap", type="default")
+chunk_size = st.sidebar.number_input("Select chunk_size")
+chunk_overlap = st.sidebar.number_input("Select overlap")
 
 @st.cache_data
 def load_docs(files):
