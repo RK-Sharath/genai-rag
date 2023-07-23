@@ -101,7 +101,7 @@ def main():
         st.write("Documents uploaded and processed.")
 
         # Split the document into chunks
-        splits = split_texts(loaded_text, chunk_size=1200, overlap=100, split_method=splitter_type)
+        splits = split_texts(loaded_text, chunk_size=1500, overlap=100, split_method=splitter_type)
 
         # Display the number of text chunks
         num_chunks = len(splits)
