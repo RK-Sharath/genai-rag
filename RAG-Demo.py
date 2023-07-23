@@ -23,8 +23,8 @@ st.title('🦜🔗 Ask questions about your document')
 
 genai_api_key = st.sidebar.text_input("GenAI API Key", type="password")
 genai_api_url = st.sidebar.text_input("GenAI API URL", type="default")
-chunk_size = st.sidebar.text_input("Select chunk_size", type="default")
-chunk_overlap = st.sidebar.text_input("Select overlap", type="default")
+chunk_s = st.sidebar.text_input("Select chunk_size", type="default")
+chunk_o = st.sidebar.text_input("Select overlap", type="default")
 
 @st.cache_data
 def load_docs(files):
@@ -45,6 +45,16 @@ def load_docs(files):
         else:
             st.warning('Please provide txt or pdf file.', icon="⚠️")
     return all_text
+
+def chunks(int):
+    chunks=chunk_s
+    return chunks
+
+def ovrlap(int):
+    ochunks=chunks_o
+    return chunks_o
+
+
          
     
 #@st.cache_resource
@@ -54,13 +64,13 @@ def create_retriever(_embeddings, splits):
     return retriever
 
 #@st.cache_resource
-def split_texts(text, chunk_size, chunk_overlap, split_method):
+def split_texts(text, chunk_size, overlap, split_method):
 
     st.info("`Splitting doc ...`")
 
     split_method = "RecursiveTextSplitter"
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=chunk_size, chunk_overlap=chunk_overlap)
+        chunk_size=chunk_size, chunk_overlap=overlap)
 
     splits = text_splitter.split_text(text)
     if not splits:
@@ -76,10 +86,8 @@ def main():
 
 # Use RecursiveCharacterTextSplitter as the default and only text splitter
     splitter_type = "RecursiveCharacterTextSplitter"
-    _chunk_size=chunk_size
-    _chunk_overlap=chunk_overlap
-    embeddings = HuggingFaceEmbeddings()
-    #embeddings = HuggingFaceInstructEmbeddings()
+    #embeddings = HuggingFaceEmbeddings()
+    embeddings = HuggingFaceInstructEmbeddings()
 
     if 'genai_api_key' not in st.session_state:
         genai_api_key = st.text_input(
@@ -104,7 +112,7 @@ def main():
         st.write("Documents uploaded and processed.")
 
         # Split the document into chunks
-        splits = split_texts(loaded_text, chunk_size=_chunk_size, chunk_overlap=_chunk_overlap, split_method=splitter_type)
+        splits = split_texts(loaded_text, chunk_size=chunks, chunk_overlap=ovrlap, split_method=splitter_type)
 
         # Display the number of text chunks
         num_chunks = len(splits)
