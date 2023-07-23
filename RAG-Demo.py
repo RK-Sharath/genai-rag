@@ -11,8 +11,6 @@ from langchain.chains import RetrievalQA
 from langchain.retrievers import SVMRetriever
 from langchain.chains import QAGenerationChain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
-from langchain.callbacks.base import CallbackManager
 from langchain.embeddings import HuggingFaceEmbeddings
 #from langchain.embeddings import HuggingFaceInstructEmbeddings
 from langchain.vectorstores import Chroma
