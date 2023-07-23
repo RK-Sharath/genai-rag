@@ -12,7 +12,7 @@ from langchain.retrievers import SVMRetriever
 from langchain.chains import QAGenerationChain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.embeddings import HuggingFaceInstructEmbeddings
+#from langchain.embeddings import HuggingFaceInstructEmbeddings
 from langchain.vectorstores import Chroma
 
 
@@ -86,8 +86,8 @@ def main():
 
 # Use RecursiveCharacterTextSplitter as the default and only text splitter
     splitter_type = "RecursiveCharacterTextSplitter"
-    #embeddings = HuggingFaceEmbeddings()
-    embeddings = HuggingFaceInstructEmbeddings()
+    embeddings = HuggingFaceEmbeddings()
+    #embeddings = HuggingFaceInstructEmbeddings()
 
     if 'genai_api_key' not in st.session_state:
         genai_api_key = st.text_input(
