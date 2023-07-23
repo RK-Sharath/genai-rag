@@ -110,6 +110,7 @@ def main():
         num_chunks = len(splits)
         st.write(f"Number of text chunks: {num_chunks}")
         retriever = create_retriever(embeddings, splits)
+        genai_api_key=st.session_state.genai_api_key
         creds = Credentials(api_key=genai_api_key, api_endpoint=genai_api_url)
         params = GenerateParams(decoding_method="greedy", temperature=0.7, max_new_tokens=maximum_new_tokens, min_new_tokens=minimum_new_tokens, repetition_penalty=2)
         llm=LangChainInterface(model=ModelType.FLAN_UL2, params=params, credentials=creds)
