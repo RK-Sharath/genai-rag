@@ -17,7 +17,7 @@ from langchain.vectorstores import Chroma
 
 
 # Page title
-st.title('🦜🔗 Retriever Augmented Generation Demo powered by IBM Watsonx')
+st.title('Retriever Augmented Generation Demo powered by IBM Watsonx')
 st.caption("This demo is prepared by Sharath Kumar RK, Senior Data Scientist, IBM Watsonx team")
 st.subheader("Ask questions about your document")
 
