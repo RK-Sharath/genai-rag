@@ -76,8 +76,8 @@ def main():
 
 # Use RecursiveCharacterTextSplitter as the default and only text splitter
     splitter_type = "RecursiveCharacterTextSplitter"
-    chunk_size=chunk_size
-    chunk_overlap=chunk_overlap
+    _chunk_size=chunk_size
+    _chunk_overlap=chunk_overlap
     embeddings = HuggingFaceEmbeddings()
     #embeddings = HuggingFaceInstructEmbeddings()
 
@@ -104,7 +104,7 @@ def main():
         st.write("Documents uploaded and processed.")
 
         # Split the document into chunks
-        splits = split_texts(loaded_text, chunk_size=chunk_size, chunk_overlap=chunk_overlap, split_method=splitter_type)
+        splits = split_texts(loaded_text, chunk_size=_chunk_size, chunk_overlap=_chunk_overlap, split_method=splitter_type)
 
         # Display the number of text chunks
         num_chunks = len(splits)
