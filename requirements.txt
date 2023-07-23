@@ -3,3 +3,9 @@ sentence_transformers
 langchain
 InstructorEmbedding
 ibm-generative-ai
+chromadb==0.3.29
+PyPDF2==3.0.1
+streamlit==1.21.0
+tiktoken==0.3.1
+tokenizers==0.13.3
+scikit-learn==1.2.2
