@@ -12,7 +12,7 @@ from langchain.retrievers import SVMRetriever
 from langchain.chains import QAGenerationChain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings import HuggingFaceEmbeddings
-#from langchain.embeddings import HuggingFaceInstructEmbeddings
+from langchain.embeddings import HuggingFaceInstructEmbeddings
 from langchain.vectorstores import Chroma
 
 
