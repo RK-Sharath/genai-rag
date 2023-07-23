@@ -59,8 +59,7 @@ def split_texts(text, split_method):
     st.info("`Splitting doc ...`")
 
     split_method = "RecursiveTextSplitter"
-    text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=chunk_size, chunk_overlap=overlap)
+    text_splitter = RecursiveCharacterTextSplitter()
 
     splits = text_splitter.split_text(text)
     if not splits:
