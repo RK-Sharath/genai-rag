@@ -12,7 +12,7 @@ from langchain.retrievers import SVMRetriever
 from langchain.chains import QAGenerationChain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings import HuggingFaceEmbeddings
-#from langchain.embeddings import HuggingFaceInstructEmbeddings
+from langchain.embeddings import HuggingFaceInstructEmbeddings
 from langchain.vectorstores import Chroma
 
 
@@ -83,7 +83,11 @@ def split_texts(text, chunk_size, chunk_overlap, split_method):
 
 @st.cache_resource
 def embed():
-    embeddings = HuggingFaceEmbeddings()
+    #embeddings = HuggingFaceEmbeddings()
+    embeddings = HuggingFaceEmbeddings(
+            model_name="hkunlp/instructor-large",
+            model_kwargs={"device": "cpu"}
+        )
     return embeddings
     
 
