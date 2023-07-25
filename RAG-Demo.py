@@ -1,5 +1,5 @@
 from genai.extensions.langchain import LangChainInterface
-from genai.schemas import ModelType, GenerateParams
+from genai.schemas import GenerateParams
 from genai.model import Credentials
 import os
 import PyPDF2
@@ -23,6 +23,7 @@ st.subheader("Ask questions about your document")
 
 
 genai_api_url = st.sidebar.text_input("GenAI API URL", type="default")
+model = st.radio("Select the Watsonx LLM model",('google/flan-t5-xl','google/flan-t5-xxl','google/flan-ul2'))
 chunk_size = st.sidebar.number_input("Select chunk size")
 chunk_overlap = st.sidebar.number_input("Select chunk overlap")
 maximum_new_tokens = st.sidebar.number_input("Select max tokens")
@@ -113,7 +114,7 @@ def main():
         genai_api_key=st.session_state.genai_api_key
         creds = Credentials(api_key=genai_api_key, api_endpoint=genai_api_url)
         params = GenerateParams(decoding_method="greedy", temperature=0.7, max_new_tokens=maximum_new_tokens, min_new_tokens=minimum_new_tokens, repetition_penalty=2)
-        llm=LangChainInterface(model=ModelType.FLAN_UL2, params=params, credentials=creds)
+        llm=LangChainInterface(model=model, params=params, credentials=creds)
         qa = RetrievalQA.from_chain_type(llm=llm, retriever=retriever, chain_type="stuff", verbose=True)
         st.write("Ready to answer questions.")
         
