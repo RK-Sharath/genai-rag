@@ -72,13 +72,16 @@ def split_texts(text, chunk_size, chunk_overlap, split_method):
 
     return splits
 
+splitter_type = "RecursiveCharacterTextSplitter"
+embeddings = HuggingFaceEmbeddings()
+    #embeddings = HuggingFaceInstructEmbeddings()
 
 def main():
     #global genai_api_key
 
 # Use RecursiveCharacterTextSplitter as the default and only text splitter
-    splitter_type = "RecursiveCharacterTextSplitter"
-    embeddings = HuggingFaceEmbeddings()
+    #splitter_type = "RecursiveCharacterTextSplitter"
+    #embeddings = HuggingFaceEmbeddings()
     #embeddings = HuggingFaceInstructEmbeddings()
 
     if 'genai_api_key' not in st.session_state:
