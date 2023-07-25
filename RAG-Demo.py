@@ -133,6 +133,7 @@ def main():
          # Question and answering
         user_question = st.text_input("Enter your question:")
         if user_question:
+            st.info("`Working on it ...`")
             answer = qa.run(user_question)
             st.write("Answer:", answer)
 
