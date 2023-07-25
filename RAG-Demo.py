@@ -84,7 +84,7 @@ def split_texts(text, chunk_size, chunk_overlap, split_method):
 @st.cache_resource
 def embed():
     #embeddings = HuggingFaceEmbeddings()
-    embeddings = HuggingFaceEmbeddings(
+    embeddings = HuggingFaceInstructEmbeddings(
             model_name="hkunlp/instructor-large",
             model_kwargs={"device": "cpu"}
         )
