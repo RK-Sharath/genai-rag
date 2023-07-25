@@ -28,7 +28,7 @@ chunk_size = st.sidebar.number_input("Select chunk size")
 chunk_overlap = st.sidebar.number_input("Select chunk overlap")
 maximum_new_tokens = st.sidebar.number_input("Select max tokens")
 minimum_new_tokens = st.sidebar.number_input("Select min tokens")
-decoding_method = st.sidebar.text_input("Decoding method (Choose either greedy or sample) ", type="default")
+decoding_method = st.sidebar.text_input("Decoding method (Choose either greedy or sample)", type="default")
 repetition_penalty = st.sidebar.number_input("Repetition penalty (Choose either 1 or 2)")
 temperature = st.sidebar.number_input("Temperature (Choose a decimal number between 0 & 2)")
 
