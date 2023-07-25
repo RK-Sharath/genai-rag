@@ -50,13 +50,13 @@ def load_docs(files):
     return all_text
          
     
-#@st.cache_resource
+@st.cache_resource
 def create_retriever(_embeddings, splits):
     vectorstore = Chroma.from_texts(splits, _embeddings)
     retriever = vectorstore.as_retriever()
     return retriever
 
-#@st.cache_resource
+@st.cache_resource
 def split_texts(text, chunk_size, chunk_overlap, split_method):
 
     st.info("`Splitting doc ...`")
@@ -73,7 +73,7 @@ def split_texts(text, chunk_size, chunk_overlap, split_method):
     return splits
 
 
-
+@st.cache_resource
 def main():
     global genai_api_key
 
