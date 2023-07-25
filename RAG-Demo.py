@@ -125,7 +125,7 @@ def main():
         retriever = create_retriever(embeddings, splits)
         genai_api_key=st.session_state.genai_api_key
         creds = Credentials(api_key=genai_api_key, api_endpoint=genai_api_url)
-        params = GenerateParams(decoding_method="greedy", temperature=0.7, max_new_tokens=maximum_new_tokens, min_new_tokens=minimum_new_tokens, repetition_penalty=2)
+        params = GenerateParams(decoding_method=decoding_method, temperature=temperature, max_new_tokens=maximum_new_tokens, min_new_tokens=minimum_new_tokens, repetition_penalty=repetition_penalty)
         llm=LangChainInterface(model=model, params=params, credentials=creds)
         qa = RetrievalQA.from_chain_type(llm=llm, retriever=retriever, chain_type="stuff", verbose=True)
         st.write("Ready to answer questions.")
