@@ -24,18 +24,17 @@ st.subheader("Ask questions about your document")
 
 genai_api_url = st.sidebar.text_input("GenAI API URL", type="default")
 model = st.radio("Select the Watsonx LLM model",('google/flan-t5-xl','google/flan-t5-xxl','google/flan-ul2'))
-chunk_size = st.sidebar.number_input("Select chunk size")
-chunk_overlap = st.sidebar.number_input("Select chunk overlap")
-maximum_new_tokens = st.sidebar.number_input("Select max tokens")
-minimum_new_tokens = st.sidebar.number_input("Select min tokens")
-#decoding_method = st.sidebar.text_input("Decoding method (Choose either greedy or sample)", type="default")
+chunk_size = st.sidebar.number_input("Select chunk size", value=700)
+chunk_overlap = st.sidebar.number_input("Select chunk overlap", value=75)
+maximum_new_tokens = st.sidebar.number_input("Select max tokens", value=500)
+minimum_new_tokens = st.sidebar.number_input("Select min tokens", value=0)
 with st.sidebar:
     decoding_method = st.radio(
         "Select decoding method",
         ('greedy', 'sample')
     )
-repetition_penalty = st.sidebar.number_input("Repetition penalty (Choose either 1 or 2)")
-temperature = st.sidebar.number_input("Temperature (Choose a decimal number between 0 & 2)")
+repetition_penalty = st.sidebar.number_input("Repetition penalty (Choose either 1 or 2)", value=2)
+temperature = st.sidebar.number_input("Temperature (Choose a decimal number between 0 & 2)", value=0.7)
 
 @st.cache_data
 def load_docs(files):
