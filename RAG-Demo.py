@@ -36,7 +36,7 @@ with st.sidebar:
 repetition_penalty = st.sidebar.number_input("Repetition penalty (Choose either 1 or 2)", value=2)
 temperature = st.sidebar.number_input("Temperature (Choose a decimal number between 0 & 2)", value=0.7)
 
-@st.cache_data
+#@st.cache_data
 def load_docs(files):
     st.info("`Reading doc ...`")
     all_text = ""
