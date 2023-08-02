@@ -116,6 +116,8 @@ def main():
             st.session_state.last_uploaded_files = uploaded_files
                  # Load and process the uploaded PDF or TXT files.
         loaded_text = load_docs(uploaded_files)
+        total_text = len(loaded_text)
+        st.write(f"Number of tokens: {total_text}")
         st.write("Documents uploaded and processed.")
 
         # Split the document into chunks
