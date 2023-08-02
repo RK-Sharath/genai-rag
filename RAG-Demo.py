@@ -31,7 +31,7 @@ minimum_new_tokens = st.sidebar.number_input("Select min tokens", value=0)
 with st.sidebar:
     decoding_method = st.radio(
         "Select decoding method",
-        ('greedy', 'sample')
+        ('sample', 'greedy')
     )
 repetition_penalty = st.sidebar.number_input("Repetition penalty (Choose either 1 or 2)", value=2)
 temperature = st.sidebar.number_input("Temperature (Choose a decimal number between 0 & 2)", value=0.7)
