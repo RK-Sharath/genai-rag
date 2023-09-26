@@ -98,7 +98,8 @@ def main():
     embeddings = embed()
     #embeddings = HuggingFaceInstructEmbeddings()
 
-    if 'genai_api_key' not in st.session_state:
+    #if 'genai_api_key' not in st.session_state:
+    if 'genai_api_key' not in st.secrets["genai_api_key"]:
         genai_api_key = st.text_input(
             'Please enter your GenAI API key', value="", placeholder="Enter the GenAI API key which begins with pak-")
         if genai_api_key:
