@@ -22,7 +22,7 @@ st.caption("This demo is prepared by Sharath Kumar RK, Senior Data Scientist, IB
 st.subheader("Ask questions about your document")
 
 
-genai_api_url = st.sidebar.text_input("GenAI API URL", type="default")
+genai_api_url = st.sidebar.text_input("GenAI API URL", type="password", value="https://workbench-api.res.ibm.com/v1")
 model = st.radio("Select the Watsonx LLM model",('google/flan-t5-xl','google/flan-t5-xxl','google/flan-ul2'))
 chunk_size = st.sidebar.number_input("Select chunk size", value=2800)
 chunk_overlap = st.sidebar.number_input("Select chunk overlap", value=125)
