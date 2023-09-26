@@ -24,8 +24,8 @@ st.subheader("Ask questions about your document")
 
 genai_api_url = st.sidebar.text_input("GenAI API URL", type="default")
 model = st.radio("Select the Watsonx LLM model",('google/flan-t5-xl','google/flan-t5-xxl','google/flan-ul2'))
-chunk_size = st.sidebar.number_input("Select chunk size", value=700)
-chunk_overlap = st.sidebar.number_input("Select chunk overlap", value=75)
+chunk_size = st.sidebar.number_input("Select chunk size", value=2800)
+chunk_overlap = st.sidebar.number_input("Select chunk overlap", value=125)
 maximum_new_tokens = st.sidebar.number_input("Select max tokens", value=500)
 minimum_new_tokens = st.sidebar.number_input("Select min tokens", value=0)
 with st.sidebar:
