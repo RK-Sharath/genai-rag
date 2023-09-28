@@ -10,6 +10,7 @@ from io import StringIO
 from langchain.chains import RetrievalQA
 from langchain.retrievers import SVMRetriever
 from langchain.chains import QAGenerationChain
+from langchain.text_splitter import CharacterTextSplitter
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings import HuggingFaceEmbeddings
 #from langchain.embeddings import HuggingFaceInstructEmbeddings
@@ -71,7 +72,7 @@ def split_texts(text, chunk_size, chunk_overlap, split_method):
     st.info("`Splitting doc ...`")
 
     split_method = "RecursiveTextSplitter"
-    text_splitter = RecursiveCharacterTextSplitter(
+    text_splitter = CharacterTextSplitter(
         chunk_size=chunk_size, chunk_overlap=chunk_overlap)
 
     splits = text_splitter.split_text(text)
@@ -94,7 +95,7 @@ def main():
     #global genai_api_key
 
 # Use RecursiveCharacterTextSplitter as the default and only text splitter
-    splitter_type = "RecursiveCharacterTextSplitter"
+    splitter_type = "CharacterTextSplitter"
     embeddings = embed()
     #embeddings = HuggingFaceInstructEmbeddings()
 
