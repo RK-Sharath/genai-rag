@@ -71,8 +71,8 @@ def split_texts(text, chunk_size, chunk_overlap, split_method):
 
     st.info("`Splitting doc ...`")
 
-    split_method = "CharacterTextSplitter"
-    text_splitter = CharacterTextSplitter(
+    split_method = "RecursiveCharacterTextSplitter"
+    text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=chunk_size, chunk_overlap=chunk_overlap)
 
     splits = text_splitter.split_text(text)
@@ -95,7 +95,7 @@ def main():
     #global genai_api_key
 
 # Use RecursiveCharacterTextSplitter as the default and only text splitter
-    splitter_type = "CharacterTextSplitter"
+    splitter_type = "RecursiveCharacterTextSplitter"
     embeddings = embed()
     #embeddings = HuggingFaceInstructEmbeddings()
 
