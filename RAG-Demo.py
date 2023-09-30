@@ -24,7 +24,7 @@ st.subheader("Ask questions about your document")
 
 
 genai_api_url = st.sidebar.text_input("GenAI API URL", type="password", value="https://workbench-api.res.ibm.com/v1")
-model = st.radio("Select the Watsonx LLM model",('google/flan-t5-xxl','google/flan-ul2','google/flan-t5-xl'))
+model = st.radio("Select the Watsonx LLM model",('google/flan-t5-xxl','google/flan-ul2','google/flan-t5-xl', 'meta-llama/llama-2-70b'))
 chunk_size = st.sidebar.number_input("Select chunk size", value=2800)
 chunk_overlap = st.sidebar.number_input("Select chunk overlap", value=125)
 maximum_new_tokens = st.sidebar.number_input("Select max tokens", value=500)
