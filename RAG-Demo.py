@@ -63,7 +63,7 @@ def load_docs(files):
 @st.cache_resource
 def create_retriever(_embeddings, splits):
     vectorstore = Chroma.from_texts(splits, _embeddings)
-    retriever = vectorstore.as_retriever()
+    retriever = vectorstore.as_retriever(search_kwargs={'k':1})
     return retriever
 
 @st.cache_resource
