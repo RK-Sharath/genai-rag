@@ -115,7 +115,7 @@ def main():
         os.environ["GENAI_API_KEY"] = st.session_state.genai_api_key
 
     uploaded_files = st.file_uploader("Upload a PDF or TXT Document", type=[
-                                      "pdf", "doc", "txt"], accept_multiple_files=True)
+                                      "pdf", "doc", "docx", "txt"], accept_multiple_files=True)
 
     if uploaded_files:
         # Check if last_uploaded_files is not in session_state or if uploaded_files are different from last_uploaded_files
