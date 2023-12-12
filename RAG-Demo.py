@@ -60,7 +60,7 @@ def load_docs(files):
             text = stringio.read()
             all_text += text
         else:
-            st.warning('Please provide txt, doc or pdf file.', icon="⚠️")
+            st.warning('Please provide txt, doc, docx or pdf file.', icon="⚠️")
     return all_text
          
     
