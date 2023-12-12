@@ -55,12 +55,8 @@ def load_docs(files):
             stringio = StringIO(file_path.getvalue().decode("utf-8"))
             text = stringio.read()
             all_text += text
-        elif file_extension == ".doc":
-            stringio = StringIO(file_path.getvalue().decode("utf-8"))
-            text = stringio.read()
-            all_text += text
         else:
-            st.warning('Please provide txt, doc, docx or pdf file.', icon="⚠️")
+            st.warning('Please provide txt or pdf file.', icon="⚠️")
     return all_text
          
     
@@ -115,7 +111,7 @@ def main():
         os.environ["GENAI_API_KEY"] = st.session_state.genai_api_key
 
     uploaded_files = st.file_uploader("Upload a PDF or TXT Document", type=[
-                                      "pdf", "doc", "docx", "txt"], accept_multiple_files=True)
+                                      "pdf", "txt"], accept_multiple_files=True)
 
     if uploaded_files:
         # Check if last_uploaded_files is not in session_state or if uploaded_files are different from last_uploaded_files
