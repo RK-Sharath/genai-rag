@@ -55,8 +55,12 @@ def load_docs(files):
             stringio = StringIO(file_path.getvalue().decode("utf-8"))
             text = stringio.read()
             all_text += text
+        elif file_extension == ".doc":
+            stringio = StringIO(file_path.getvalue().decode("utf-8"))
+            text = stringio.read()
+            all_text += text
         else:
-            st.warning('Please provide txt or pdf file.', icon="⚠️")
+            st.warning('Please provide txt, doc or pdf file.', icon="⚠️")
     return all_text
          
     
