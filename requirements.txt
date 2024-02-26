@@ -1,6 +1,7 @@
 ibm-generative-ai[langchain]
+sentence-transformers
 langchain
-ibm-generative-ai==0.1.19
+ibm-generative-ai==2.1.1
 chromadb==0.3.29
 PyPDF2==3.0.1
 streamlit==1.21.0
