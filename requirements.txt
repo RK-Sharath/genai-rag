@@ -7,4 +7,4 @@ faiss-cpu
 flask 
 streamlit
 PyPDF2
-chromadb
+chromadb==0.3.29
