@@ -7,3 +7,4 @@ faiss-cpu
 flask 
 streamlit
 PyPDF2
+chromadb
